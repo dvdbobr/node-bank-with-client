@@ -8,7 +8,7 @@ function App() {
   const [depositUserID, setDepositUserID] = useState();
   const [depositAmount, setDepositAmount] = useState();
   const addUser = async () => {
-    axios.post('http://localhost:8000/api/users/', {
+    axios.post('http://localhost:5000/api/users/', {
       id: userID
     }).then((response) => {
       console.log(response)
@@ -17,7 +17,7 @@ function App() {
     })
   }
   const depositCash = async () => {
-    axios.put(`http://localhost:8000/api/users/depositCash/${depositUserID}`, {
+    axios.put(`http://localhost:5000/api/users/depositCash/${depositUserID}`, {
       amount: depositAmount
     }).then((response) => {
       console.log(response)
@@ -38,12 +38,12 @@ function App() {
     console.log(depositAmount)
   }
   const getUsers2 = async () => {
-    const response = await axios.get('http://localhost:8000/api/users/')
+    const response = await axios.get('http://localhost:5000/api/users/')
     console.log(response.data)
   }
   useEffect(() => {
     const getUsers = async () => {
-      const response = await axios.get('http://localhost:8000/api/users/')
+      const response = await axios.get('http://localhost:5000/api/users/')
       console.log(response.data)
       setUsers(response.data)
     }
